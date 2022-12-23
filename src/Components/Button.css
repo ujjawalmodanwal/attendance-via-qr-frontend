@@ -1,0 +1,22 @@
+.Button-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(1, 52, 255);
+    border-radius: 5px;
+    height: 2vw;
+    width: 5vw;
+    cursor: pointer;
+    font-size: 1vw;
+    margin: 1vh;
+}
+
+@media(max-width: 880px){
+    .Button-wrapper{
+        height: 10vw;
+        width: 25vw;
+        font-size: 5vw;
+        margin: 5vw;
+    }
+}

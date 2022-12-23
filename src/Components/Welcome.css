@@ -1,0 +1,33 @@
+.welcome-heading{
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-login-box{
+    display: flex;
+    justify-content: center;
+    padding:1vw;
+    width:30vw;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.welcome-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.welcome-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width: 880px){
+    .welcome-login-box{
+        padding:1vw;
+        width:85vw;
+    }
+
+}
