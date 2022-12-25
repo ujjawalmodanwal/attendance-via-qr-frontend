@@ -1,31 +1,38 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Button from './Button';
 import './Welcome.css';
 class Welcome extends Component {
 	constructor(props){
 		super(props);
 		this.state ={
-			Name: null,
-			Student_ID: null,
-			Department:null,
-			Class:null,
-			Year:null,
-			Email:null,
-			Password:null,
-			Contact:null,
+			Name: '',
+			user_ID: '',
+			Department:'',
+			Class:'',
+			Year:'',
+			Email:'',
+			Password:'',
+			Contact:'',
 			isLoginRequest:false,
 			isRegisterRequest:false,
 		};
-		this.handleSubmit = this.handleSubmit(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleLogin = this.handleLogin.bind(this);
 		this.handleRegister = this.handleRegister.bind(this);
 	}
 
 	handleSubmit(){
-		console.log(this.state)
+		console.log(this.state);
+		const userData = [this.state.Name, this.state.user_ID, this.state.Department, this.state.Class, this.state.Year, this.state.Email, this.state.Password, this.state.Contact]
+		axios.post(`/user/register`, userData).then((response)=>{
+			console.alert('User Registered!');
+		}, (error)=>{
+			console.alert(error);
+		})
 	}
 	handleLogin(){
-		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw' }
+		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw', border:'1px solid black' ,borderRadius:'5px' }
 		if(window.innerWidth < 880){
 			textBoxStyle.width='70vw';
 			textBoxStyle.height='10vw';
@@ -41,7 +48,7 @@ class Welcome extends Component {
 						<h3>Login </h3>
 						<input style={textBoxStyle} name = 'Email' type="email" value={this.state.Email} placeholder='Email' onChange={(e)=>this.setState({Email:e.target.value})}/>
 						<input style={textBoxStyle} name = 'Password' type="password" value={this.state.Password} placeholder='Password' onChange={(e)=>this.setState({Password:e.target.value})}/>
-						<div onClick={this.handleSubmit}><Button action_name = 'Login'/></div>
+						<div onClick={this.handleSubmit} style={{marginBottom:'1vw'}}><Button action_name = 'Login'/></div>
 						New User?
 						<div onClick={()=>this.setState({isRegisterRequest:true, isLoginRequest:false})}><Button action_name = 'Register'/></div>
 					</form>
@@ -50,7 +57,7 @@ class Welcome extends Component {
 		)
 	}
 	handleRegister(){
-		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw' }
+		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw', border:'1px solid black' ,borderRadius:'5px' }
 		if(window.innerWidth < 880){
 			textBoxStyle.width='70vw';
 			textBoxStyle.height='10vw';
@@ -65,7 +72,7 @@ class Welcome extends Component {
 					<form className='welcome-form'>
 						<h3>Create Account</h3>
 						<input style={textBoxStyle} name = 'Name' type="text" value={this.state.Name} placeholder='Name' onChange={(e)=>this.setState({Name:e.target.value})}/>
-						<input style={textBoxStyle} name = 'Student_ID' type="text" value={this.state.Student_ID} placeholder='Student ID' onChange={(e)=>this.setState({Student_ID:e.target.value})}/>
+						<input style={textBoxStyle} name = 'user_ID' type="text" value={this.state.user_ID} placeholder='user ID' onChange={(e)=>this.setState({user_ID:e.target.value})}/>
 						<input style={textBoxStyle} list="Departments" name="Department" value={this.state.Department} placeholder='Department' onChange={(e)=>this.setState({Department:e.target.value})}/>
 							<datalist id="Departments">
 								<option value="CSE"/>
@@ -95,9 +102,9 @@ class Welcome extends Component {
 						<input style={textBoxStyle} name = 'Email' type="email" value={this.state.Email} placeholder='Email' onChange={(e)=>this.setState({Email:e.target.value})}/>
 						<input style={textBoxStyle} name = 'Password' type="password" value={this.state.Password} placeholder='Password' onChange={(e)=>this.setState({Password:e.target.value})}/>
 						<input style={textBoxStyle} name = 'Contact' type="contact" value={this.state.Contact} placeholder='Contact' onChange={(e)=>this.setState({Contact:e.target.value})}/>
-						<div onClick={this.handleSubmit}><Button action_name = 'Register'/></div>
+						<div style={{marginBottom:'1vw'}} onClick={this.handleSubmit}><Button action_name='Register'/></div>
 						Already Have an account?
-						<div onClick={()=>this.setState({isRegisterRequest:false, isLoginRequest:true})}><Button action_name = 'Login'/></div>
+						<div onClick={()=>this.setState({isRegisterRequest:false, isLoginRequest:true})} ><Button action_name = 'Login'/></div>
 					</form>
 				</div>
 			</div>
