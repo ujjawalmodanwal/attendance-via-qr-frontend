@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Button from './Button';
 import './Welcome.css';
+import apis from '../utilities/api'; 
+
+
+
 class Welcome extends Component {
 	constructor(props){
 		super(props);
@@ -22,17 +25,55 @@ class Welcome extends Component {
 		this.handleRegister = this.handleRegister.bind(this);
 	}
 
-	handleSubmit(){
-		console.log(this.state);
-		const userData = [this.state.Name, this.state.user_ID, this.state.Department, this.state.Class, this.state.Year, this.state.Email, this.state.Password, this.state.Contact]
-		axios.post(`/user/register`, userData).then((response)=>{
-			console.alert('User Registered!');
-		}, (error)=>{
-			console.alert(error);
-		})
+
+
+
+	handleSubmit(action){
+		if(action===2){
+			
+			//check if all the fields are filled correctly
+			//----------------------------------------
+			if(this.state.Name!=='' && 
+			   	this.state.user_ID!=='' &&
+			   	this.state.Department!==''&&
+			  	this.state.Class!==''&&
+			   	this.state.Year!==''&&
+			   	this.state.Email!==''&&
+			   	this.state.Password!==''&&
+			   	this.state.Contact!=='')
+				{	
+
+				const userData = {
+					Name:this.state.Name, 
+					user_ID:this.state.user_ID, 
+					Department:this.state.Department, 
+					Class:this.state.Class, 
+					Year:this.state.Year, 
+					Email:this.state.Email, 
+					Password:this.state.Password, 
+					Contact:this.state.Contact
+				}
+				apis.registerUser(userData, this.props.checkLocalStoreage);
+			}
+			else{
+				window.alert('Kindly provide all the required information!')
+			}
+		}
+		if(action===1){
+			if(this.state.Email!=='' && this.state.Password!==''){
+				const userCredentials = {Email:this.state.Email, Password: this.state.Password};
+				apis.loginUser(userCredentials, this.props.checkLocalStoreage);
+			}
+			else{
+				window.alert('Kindly provide all the required information!')
+			}
+		}
 	}
+
+
+
 	handleLogin(){
-		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw', border:'1px solid black' ,borderRadius:'5px' }
+		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw', border:'1px solid grey' ,borderRadius:'5px' }
 		if(window.innerWidth < 880){
 			textBoxStyle.width='70vw';
 			textBoxStyle.height='10vw';
@@ -48,7 +89,7 @@ class Welcome extends Component {
 						<h3>Login </h3>
 						<input style={textBoxStyle} name = 'Email' type="email" value={this.state.Email} placeholder='Email' onChange={(e)=>this.setState({Email:e.target.value})}/>
 						<input style={textBoxStyle} name = 'Password' type="password" value={this.state.Password} placeholder='Password' onChange={(e)=>this.setState({Password:e.target.value})}/>
-						<div onClick={this.handleSubmit} style={{marginBottom:'1vw'}}><Button action_name = 'Login'/></div>
+						<div onClick={()=>this.handleSubmit(1)} style={{marginBottom:'1vw'}}><Button action_name = 'Login'/></div>
 						New User?
 						<div onClick={()=>this.setState({isRegisterRequest:true, isLoginRequest:false})}><Button action_name = 'Register'/></div>
 					</form>
@@ -56,8 +97,11 @@ class Welcome extends Component {
 			</div>
 		)
 	}
+
+
+
 	handleRegister(){
-		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw', border:'1px solid black' ,borderRadius:'5px' }
+		var textBoxStyle = {height:'2vw', margin: '0.8vw', width:'20vw', border:'1px solid grey' ,borderRadius:'5px' }
 		if(window.innerWidth < 880){
 			textBoxStyle.width='70vw';
 			textBoxStyle.height='10vw';
@@ -102,7 +146,7 @@ class Welcome extends Component {
 						<input style={textBoxStyle} name = 'Email' type="email" value={this.state.Email} placeholder='Email' onChange={(e)=>this.setState({Email:e.target.value})}/>
 						<input style={textBoxStyle} name = 'Password' type="password" value={this.state.Password} placeholder='Password' onChange={(e)=>this.setState({Password:e.target.value})}/>
 						<input style={textBoxStyle} name = 'Contact' type="contact" value={this.state.Contact} placeholder='Contact' onChange={(e)=>this.setState({Contact:e.target.value})}/>
-						<div style={{marginBottom:'1vw'}} onClick={this.handleSubmit}><Button action_name='Register'/></div>
+						<div style={{marginBottom:'1vw'}} onClick={()=>this.handleSubmit(2)}><Button action_name='Register'/></div>
 						Already Have an account?
 						<div onClick={()=>this.setState({isRegisterRequest:false, isLoginRequest:true})} ><Button action_name = 'Login'/></div>
 					</form>
@@ -111,6 +155,9 @@ class Welcome extends Component {
     	)
 
 	}
+
+
+
   	render() {
 		if(this.state.isRegisterRequest){
 			return this.handleRegister();

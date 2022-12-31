@@ -1,0 +1,10 @@
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashbaord-logout{
+    cursor: pointer;
+}
