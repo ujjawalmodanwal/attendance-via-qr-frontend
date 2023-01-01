@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Welcome from './Components/Welcome';
 import Dashboard from './Components/Dashboard';
+import Profile from './Components/Profile';
 
 class App extends React.Component{
 	constructor(props){
@@ -22,7 +23,10 @@ class App extends React.Component{
 	getRoutes(){
 		if(this.state.localStoragePresent){
 			return (
+				<>
 				<Route path="/Dashboard" element = {<Dashboard/>} />
+				<Route path="/Profile" element = {<Profile/>} />
+				</>
 			)
 		}
 		else return(

@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import Button from './Button';
 import './Dashboard.css';
+import TableRow from './TableRow';
+import Navbar from './Navbar';
 
 export default class Dashboard extends Component {
-  handleLogout(){
-    localStorage.clear();
-    window.location.replace('/')
-  }
   render() {
     return (
       <div className='dashboard-container'>
+        <Navbar isHomePage = {1}/>
         <h1>Welcome to dashboard!</h1>
-        <div className='dashbaord-logout' onClick={()=>this.handleLogout()}><Button action_name = "Logout"/></div>
+        <TableRow/>
       </div>
     )
   }

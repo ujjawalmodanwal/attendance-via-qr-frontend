@@ -14,9 +14,9 @@
 
 @media(max-width: 880px){
     .Button-wrapper{
-        height: 10vw;
-        width: 25vw;
-        font-size: 5vw;
-        margin: 5vw;
+        height: 8vw;
+        width: 16vw;
+        font-size: 4vw;
+        margin: 2vw;
     }
 }

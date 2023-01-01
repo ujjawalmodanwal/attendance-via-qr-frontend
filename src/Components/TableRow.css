@@ -1,0 +1,28 @@
+.tableRow-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableRow-cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+@media(max-width: 880px){
+    .tableRow-cell-font{
+        font-size: 2vw;
+    }
+    .tableRow-cell{
+        padding: 0.2vw;
+        width: 12vw;
+    }
+}

@@ -38,8 +38,37 @@ const loginUser = (payload, checkLocalStoreage)=>{
     })
 }
 
+const getUserDetails = (updateUser)=>{
+    const jwtToken = localStorage.getItem("jwtToken");
+    axios.get('/user/details', {
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":jwtToken,
+        }
+    }).then((res)=>{
+            updateUser(res.data);
+        }, (err)=>{
+            console.log(err);
+    })
+}
+
+const updateUserData = (payload)=>{
+    payload = JSON.stringify(payload);
+    const jwtToken = localStorage.getItem("jwtToken");
+    axios.put("/user/update", payload, {
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":jwtToken,
+        }
+    }).then((res)=>{
+        console.log(res);
+    }, (err)=>{
+        console.log(err);
+    })
+}
+
 
 const apis = {
-    registerUser, loginUser,
+    registerUser, loginUser, getUserDetails, updateUserData
 };
 export default apis;
