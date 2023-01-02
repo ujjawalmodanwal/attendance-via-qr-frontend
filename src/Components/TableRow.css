@@ -16,6 +16,21 @@
     text-overflow: ellipsis;
 }
 
+.tableRow-header-cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    background-color:rgb(20, 149, 255);
+    font-weight: bold;
+}
+
 
 @media(max-width: 880px){
     .tableRow-cell-font{

@@ -82,6 +82,10 @@ export default class Profile extends Component {
         }
         else{
             const textBoxStyle = {width:'10vw',height:'1vw' }
+            if(window.innerWidth<880){
+                textBoxStyle.width = "60vw";
+                textBoxStyle.height = "6vw";
+            }
             return(
                 <>
                     <div className='profile-information-entity'>

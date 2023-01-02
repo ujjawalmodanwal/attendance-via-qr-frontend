@@ -67,8 +67,30 @@ const updateUserData = (payload)=>{
     })
 }
 
+const getUserAttendance = (date, updateAttendanceData) =>{
+    const jwtToken = localStorage.getItem("jwtToken");
+    axios.get(`/user/attendance/`, {
+        params:{
+            "requestedDate":date
+        },
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":jwtToken,
+        }
+    }).then((res)=>{
+        if(res.data!=='Not found'){
+            updateAttendanceData(res.data);
+        }
+        else{
+            updateAttendanceData([]);
+            console.log(res.data);
+        }
+    }, (err)=>{
+        console.log(err);
+    })
+}
 
 const apis = {
-    registerUser, loginUser, getUserDetails, updateUserData
+    registerUser, loginUser, getUserDetails, updateUserData, getUserAttendance
 };
 export default apis;

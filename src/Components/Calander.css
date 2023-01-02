@@ -1,0 +1,11 @@
+.calander-date-selection{
+    display: flex;
+    align-items: center;
+    margin: 2vw;
+}
+
+@media(max-width: 880px){
+    .calander-date-selection{
+        margin: 3vw;
+    }
+}
