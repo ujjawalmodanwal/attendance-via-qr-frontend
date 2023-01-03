@@ -90,7 +90,41 @@ const getUserAttendance = (date, updateAttendanceData) =>{
     })
 }
 
+
+const getQRString = (newQR, getString)=>{
+    const jwtToken = localStorage.getItem("jwtToken");
+    axios.get(`/user/getQRCode/`, {
+        params:{
+            "newQR": newQR
+        },
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":jwtToken,
+        }
+    }).then(res=>{
+        console.log(res.data);
+        getString(res.data);
+    }, err=>{
+        console.log(err);
+    })
+}
+
+const markAttendance = (payload)=>{
+    payload = JSON.stringify(payload);
+    const jwtToken = localStorage.getItem("jwtToken");
+    axios.post('/user/markAttendance', payload,{
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":jwtToken,
+        }
+    }).then(res=>{
+        console.log(res.data);
+    }, err=>{
+        console.log(err);
+    })
+}
+
 const apis = {
-    registerUser, loginUser, getUserDetails, updateUserData, getUserAttendance
+    registerUser, loginUser, getUserDetails, updateUserData, getUserAttendance, getQRString, markAttendance
 };
 export default apis;

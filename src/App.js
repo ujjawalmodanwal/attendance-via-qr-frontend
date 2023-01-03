@@ -4,6 +4,7 @@ import './App.css';
 import Welcome from './Components/Welcome';
 import Dashboard from './Components/Dashboard';
 import Profile from './Components/Profile';
+import QRScanner from './Components/QRScanner';
 
 class App extends React.Component{
 	constructor(props){
@@ -26,6 +27,7 @@ class App extends React.Component{
 				<>
 				<Route path="/Dashboard" element = {<Dashboard/>} />
 				<Route path="/Profile" element = {<Profile/>} />
+				<Route path="/QRScanner" element = {<QRScanner/>} />
 				</>
 			)
 		}

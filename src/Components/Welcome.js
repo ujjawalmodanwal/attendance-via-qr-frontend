@@ -27,7 +27,7 @@ class Welcome extends Component {
 	}
 
 	navigateToDashboard(){
-		this.props.navigate('/Dashboard')
+		this.props.navigate('/Dashboard');
 	}
 	handleSubmit(action, navigateToDashboard){
 		if(action===2){
