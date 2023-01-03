@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const registerUser = (payload, checkLocalStoreage)=>{
+const registerUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
     payload = JSON.stringify(payload);
     axios.post('/user/register', payload, 
         {headers: {
@@ -11,13 +11,13 @@ const registerUser = (payload, checkLocalStoreage)=>{
         const jwtToken = res.data.accessToken;
         localStorage.setItem("jwtToken", 'Bearer '+jwtToken);
         checkLocalStoreage();
-        window.location.replace("/Dashboard");
+        navigateToDashboard();
     }, (err)=>{
         console.log(err);
     })
 }
 
-const loginUser = (payload, checkLocalStoreage)=>{
+const loginUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
     payload = JSON.stringify(payload);
     axios.post('user/login', payload,
         {headers:{
@@ -28,7 +28,7 @@ const loginUser = (payload, checkLocalStoreage)=>{
         if(jwtToken){
             localStorage.setItem("jwtToken", 'Bearer '+jwtToken);
             checkLocalStoreage();
-            window.location.replace("/Dashboard");
+            navigateToDashboard();
         }
         else{
             console.log('Token not received!')

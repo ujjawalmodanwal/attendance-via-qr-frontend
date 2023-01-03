@@ -4,7 +4,66 @@
     align-items: center;
 }
 
-.tableRow-cell{
+.tableRow-useridCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tableRow-nameCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tableRow-departmentCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tableRow-classCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tableRow-yearCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.tableRow-intimeCell{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +75,92 @@
     text-overflow: ellipsis;
 }
 
-.tableRow-header-cell{
+.tableRow-outtimeCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.tableRow-header-useridCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    background-color:rgb(20, 149, 255);
+    font-weight: bold;
+}
+
+.tableRow-header-nameCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    background-color:rgb(20, 149, 255);
+    font-weight: bold;
+}
+.tableRow-header-departmentCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    background-color:rgb(20, 149, 255);
+    font-weight: bold;
+}
+
+.tableRow-header-classCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    background-color:rgb(20, 149, 255);
+    font-weight: bold;
+}
+.tableRow-header-yearCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    background-color:rgb(20, 149, 255);
+    font-weight: bold;
+}
+.tableRow-header-intimeCell{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,13 +175,35 @@
     font-weight: bold;
 }
 
+.tableRow-header-outtimeCell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    padding: 0.2vw;
+    border: 1px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    background-color:rgb(20, 149, 255);
+    font-weight: bold;
+}
 
 @media(max-width: 880px){
     .tableRow-cell-font{
         font-size: 2vw;
     }
-    .tableRow-cell{
-        padding: 0.2vw;
-        width: 12vw;
+    .tableRow-header-useridCell{
+        width: 10vw;
+    }
+    .tableRow-useridCell{
+        width: 10vw;
+    }
+    .tableRow-departmentCell{
+        width: 11vw;
+    }
+    .tableRow-header-departmentCell{
+        width: 11vw;
     }
 }

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Button from './Button';
 import './Navbar.css';
+import {withRouter} from './Navigate';
 
-export default class Navbar extends Component {
+class Navbar extends Component {
     openProfile(){
-        window.location.replace('/Profile');
+        this.props.navigate('/Profile');
     }
 	openHome(){
-		window.location.replace('/Dashboard');
+		this.props.navigate('/Dashboard');
 	}
 	handleLogout(){
 		localStorage.clear();
@@ -30,3 +31,5 @@ export default class Navbar extends Component {
 		)
 	}
 }
+
+export default withRouter(Navbar);
