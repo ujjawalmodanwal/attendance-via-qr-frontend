@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import QrReader from 'react-qr-scanner';
 import {withRouter} from './Navigate';
 import apis from '../utilities/api';
+import './QRScanner.css';
 
 class QRScanner extends Component {
     constructor(props){
@@ -31,13 +32,15 @@ class QRScanner extends Component {
             width: 320,
         }
         return (
-            <div>
-                <QrReader
-                delay={this.state.delay}
-                style={previewStyle}
-                onError={this.handleError}
-                onScan={this.handleScan}
-                />
+            <div className='qrcscanner-main'>
+                <div className='qrscanner-window'>
+                    <QrReader
+                    delay={this.state.delay}
+                    style={previewStyle}
+                    onError={this.handleError}
+                    onScan={this.handleScan}
+                    />
+                </div>
                 <p>{this.state.result}</p>
             </div>
         )

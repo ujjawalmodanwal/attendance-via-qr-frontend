@@ -6,7 +6,6 @@ const registerUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
         {headers: {
             "Content-Type": "application/json",
         }
-    
     }).then((res)=>{
         const jwtToken = res.data.accessToken;
         localStorage.setItem("jwtToken", 'Bearer '+jwtToken);
@@ -25,8 +24,10 @@ const loginUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
         }
     }).then((res)=>{
         const jwtToken = res.data.accessToken;
+        const isadmin = res.data.isadmin
         if(jwtToken){
             localStorage.setItem("jwtToken", 'Bearer '+jwtToken);
+            localStorage.setItem("isadmin", isadmin);
             checkLocalStoreage();
             navigateToDashboard();
         }
@@ -102,7 +103,6 @@ const getQRString = (newQR, getString)=>{
             "Authorization":jwtToken,
         }
     }).then(res=>{
-        console.log(res.data);
         getString(res.data);
     }, err=>{
         console.log(err);

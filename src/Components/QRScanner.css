@@ -1,0 +1,13 @@
+.qrcscanner-main{
+    display: flex;
+    padding: 1vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10vw;
+}
+
+.qrscanner-window{
+    border: 2px solid blue;
+    padding: 2vw;
+}
