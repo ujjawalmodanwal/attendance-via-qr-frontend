@@ -23,6 +23,7 @@ const loginUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
             "Content-Type": "application/json",
         }
     }).then((res)=>{
+        console.log(res.data);
         const jwtToken = res.data.accessToken;
         const isadmin = res.data.isadmin
         if(jwtToken){
@@ -84,7 +85,6 @@ const getUserAttendance = (date, updateAttendanceData) =>{
         }
         else{
             updateAttendanceData([]);
-            console.log(res.data);
         }
     }, (err)=>{
         console.log(err);
@@ -118,9 +118,9 @@ const markAttendance = (payload)=>{
             "Authorization":jwtToken,
         }
     }).then(res=>{
-        console.log(res.data);
+        console.alert(res.data);
     }, err=>{
-        console.log(err);
+        console.alert(err);
     })
 }
 

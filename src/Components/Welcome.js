@@ -124,6 +124,7 @@ class Welcome extends Component {
 								<option value="ECE"/>
 								<option value="CIV"/>
 								<option value="MEC"/>
+								<option value="SMST"/>
 							</datalist>
 						<input style={textBoxStyle} list="Class" name="Class" value={this.state.Class} placeholder='Class' onChange={(e)=>this.setState({Class:e.target.value})}/>
 							<datalist id="Class">
@@ -136,11 +137,11 @@ class Welcome extends Component {
 							</datalist>
 						<input style={textBoxStyle} list="Year" name = 'Year' value={this.state.Year} placeholder='Year' onChange={(e)=>this.setState({Year:e.target.value})}/>
 							<datalist id="Year">
-								<option value="I"/>
-								<option value="II"/>
-								<option value="III"/>
-								<option value="IV"/>
-								<option value="V"/>
+								<option value={1}/>
+								<option value={2}/>
+								<option value={3}/>
+								<option value={4}/>
+								<option value={5}/>
 							</datalist>
 						<input style={textBoxStyle} name = 'Email' type="email" value={this.state.Email} placeholder='Email' onChange={(e)=>this.setState({Email:e.target.value})}/>
 						<input style={textBoxStyle} name = 'Password' type="password" value={this.state.Password} placeholder='Password' onChange={(e)=>this.setState({Password:e.target.value})}/>

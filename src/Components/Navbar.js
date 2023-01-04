@@ -44,11 +44,10 @@ class Navbar extends Component {
 		this.props.getQRCode(this.state.QRString);
 	}
 	getQRCodeButtons(){
-		
 		if(this.state.isadmin==="true"){
 			return (
 				<>
-					<div className='navbar-logout' onClick={()=>{this.props.getQRCode(this.state.QRString);}}><Button action_name = "QR Code"/></div>
+					<div className='navbar-logout' onClick={()=>this.props.getQRCode(this.state.QRString)}><Button action_name = "QR Code"/></div>
 					<div className='navbar-logout' onClick={()=>this.getNewQRString()}><Button action_name = "New QR"/></div>
 				</>
 			)
