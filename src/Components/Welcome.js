@@ -169,7 +169,7 @@ class Welcome extends Component {
 			return(
 				<div className='welcome-container'>
 					<div className='welcome-heading'>	
-						<h1>Welcome to the Library!</h1>
+						<h1>Welcome to the QR based attendance system for library!</h1>
 					</div>
 					<div className='welcome-login-box'>
 						<div onClick={()=>this.setState({isRegisterRequest:true, isLoginRequest:false})}><Button action_name = 'Register'/></div>
