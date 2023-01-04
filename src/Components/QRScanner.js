@@ -39,7 +39,7 @@ class QRScanner extends Component {
                     style={previewStyle}
                     onError={this.handleError}
                     onScan={this.handleScan}
-                    chooseDeviceId(2)
+                    facingMode={"environment"}
                     />
                 </div>
                 <p>{this.state.result}</p>
