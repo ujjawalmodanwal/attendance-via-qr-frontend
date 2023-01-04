@@ -2,7 +2,7 @@ import axios from "axios";
 
 const registerUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
     payload = JSON.stringify(payload);
-    axios.post('/user/register', payload, 
+    axios.post('https://attendance-via-qr-backend.onrender.com/user/register', payload, 
         {headers: {
             "Content-Type": "application/json",
         }
@@ -12,13 +12,13 @@ const registerUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
         checkLocalStoreage();
         navigateToDashboard();
     }, (err)=>{
-        console.log(err);
+        window.alert(err);
     })
 }
 
 const loginUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
     payload = JSON.stringify(payload);
-    axios.post('user/login', payload,
+    axios.post('https://attendance-via-qr-backend.onrender.com/user/login', payload,
         {headers:{
             "Content-Type": "application/json",
         }
@@ -33,16 +33,16 @@ const loginUser = (payload, checkLocalStoreage, {navigateToDashboard})=>{
             navigateToDashboard();
         }
         else{
-            console.log('Token not received!')
+            window.alert('Token not received!')
         }
     }, (err)=>{
-        console.log(err);
+        window.alert(err);
     })
 }
 
 const getUserDetails = (updateUser)=>{
     const jwtToken = localStorage.getItem("jwtToken");
-    axios.get('/user/details', {
+    axios.get('https://attendance-via-qr-backend.onrender.com/user/details', {
         headers:{
             "Content-Type":"application/json",
             "Authorization":jwtToken,
@@ -50,28 +50,28 @@ const getUserDetails = (updateUser)=>{
     }).then((res)=>{
             updateUser(res.data);
         }, (err)=>{
-            console.log(err);
+            window.alert(err);
     })
 }
 
 const updateUserData = (payload)=>{
     payload = JSON.stringify(payload);
     const jwtToken = localStorage.getItem("jwtToken");
-    axios.put("/user/update", payload, {
+    axios.put("https://attendance-via-qr-backend.onrender.com/user/update", payload, {
         headers:{
             "Content-Type":"application/json",
             "Authorization":jwtToken,
         }
     }).then((res)=>{
-        console.log(res);
+        window.alert(res);
     }, (err)=>{
-        console.log(err);
+        window.alert(err);
     })
 }
 
 const getUserAttendance = (date, updateAttendanceData) =>{
     const jwtToken = localStorage.getItem("jwtToken");
-    axios.get(`/user/attendance/`, {
+    axios.get(`https://attendance-via-qr-backend.onrender.com/user/attendance/`, {
         params:{
             "requestedDate":date
         },
@@ -87,14 +87,14 @@ const getUserAttendance = (date, updateAttendanceData) =>{
             updateAttendanceData([]);
         }
     }, (err)=>{
-        console.log(err);
+        window.alert(err);
     })
 }
 
 
 const getQRString = (newQR, getString)=>{
     const jwtToken = localStorage.getItem("jwtToken");
-    axios.get(`/user/getQRCode/`, {
+    axios.get(`https://attendance-via-qr-backend.onrender.com/user/getQRCode/`, {
         params:{
             "newQR": newQR
         },
@@ -105,22 +105,22 @@ const getQRString = (newQR, getString)=>{
     }).then(res=>{
         getString(res.data);
     }, err=>{
-        console.log(err);
+        window.alert(err);
     })
 }
 
 const markAttendance = (payload)=>{
     payload = JSON.stringify(payload);
     const jwtToken = localStorage.getItem("jwtToken");
-    axios.post('/user/markAttendance', payload,{
+    axios.post('https://attendance-via-qr-backend.onrender.com/user/markAttendance', payload,{
         headers:{
             "Content-Type":"application/json",
             "Authorization":jwtToken,
         }
     }).then(res=>{
-        console.alert(res.data);
+        window.alert(res.data);
     }, err=>{
-        console.alert(err);
+        window.alert(err);
     })
 }
 
