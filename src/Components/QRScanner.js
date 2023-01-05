@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import QrReader from 'react-qr-scanner';
+import QrReader from 'modern-react-qr-reader';
 import {withRouter} from './Navigate';
 import apis from '../utilities/api';
 import './QRScanner.css';
@@ -7,19 +7,12 @@ import './QRScanner.css';
 class QRScanner extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            delay: 100,
-            result: 'Scanning...',
-        }
         this.handleScan = this.handleScan.bind(this);
         this.handleError = this.handleError.bind(this);
     }
     handleScan(data){
         if(data){
-            this.setState({
-            result: data.text,
-            })
-            apis.markAttendance({QRString:data.text});
+            apis.markAttendance({QRString:data});
             this.props.navigate('/Dashboard');
         }
     }
@@ -33,16 +26,16 @@ class QRScanner extends Component {
         }
         return (
             <div className='qrcscanner-main'>
-                <div className='qrscanner-window'>
+                
                     <QrReader
                         delay={300}
-                        facingMode={"rear"}
+                        facingMode={"environment"}
                         onError={this.handleError}
                         onScan={this.handleScan}
                         style={previewStyle}
                     />
-                </div>
-                <p>{this.state.result}</p>
+               
+                <p>Scanning...</p>
             </div>
         )
     }
