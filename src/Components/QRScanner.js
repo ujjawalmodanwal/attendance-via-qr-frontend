@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import QrReader from 'react-qr-scanner';
+import QrReader from 'modern-react-qr-reader';
 import {withRouter} from './Navigate';
 import apis from '../utilities/api';
 import './QRScanner.css';
@@ -35,11 +35,11 @@ class QRScanner extends Component {
             <div className='qrcscanner-main'>
                 <div className='qrscanner-window'>
                     <QrReader
-                    delay={this.state.delay}
-                    style={previewStyle}
-                    onError={this.handleError}
-                    onScan={this.handleScan}
-                    facingMode={"environment"}
+                        delay={300}
+                        facingMode={"environment"}
+                        onError={this.handleError}
+                        onScan={this.handleScan}
+                        style={previewStyle}
                     />
                 </div>
                 <p>{this.state.result}</p>
