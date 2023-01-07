@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# QR based attendance marking system for our institute library    
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Tech stack used :** Postgresql, NodeJs, ExpressJs, React JS, Postman       
+**Frontend Deployment:** Netlify     
+**Backend and Database Deployment:** Render     
 
-## Available Scripts
 
-In the project directory, you can run:
+This is a software as a solution project done by me. Description as per STAR approach is as follows:  
 
-### `npm start`
+**Situation:** At our institute library entry/exit time of the students was marked by asking them to write on a register notebook with their "name", "department", "student ID", "class". This was very inconsistent way with no data record integrity as not all student who are entering or exiting the library used to provide their details. I obsereved this situation and thought to create a QR based entry/exit time marking system where the admin will generate a QR code and every student just have to scan that QR code on entering and exiting which was very quick.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Task:** Create a website with register/login features. Each users go through the process of authentication and authorization. Admin (only) can generate old/new QR code. Students can scan the same QR code for marking entry and exit time. Each student can see only their own data. Only admin can see the data of all the students. Users can update their profile details.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Action:** I designed the relational database with Postgresql framework. Understood what api endpoints are required to interface frontend with backend. Created frontend UI using React JS library. Backend using Node JS library under the framework of Express JS module. 
 
-### `npm test`
+**Result:** I worked on this project alone and it took me 15 days to release the first version of fully working website. Though some additional features are still in my mind which I will be implementing in coming these days. Probably, I will try to pitch this improvisation to library incharge to get it implemented.                   
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Link to backend server codebase: [link](https://github.com/ujjawalmodanwal/attendance-via-qr-backend)                  
+Link to deployed version of the website: [link](https://deft-bavarois-f36503.netlify.app/)
 
-### `npm run build`
+**Crdentials for testing the website:**
+- For dummy admin:      
+email:ujjawalmodamwal352@outlook.com       
+password:ujjawal@library       
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- For dummy student:       
+email: pavitra@prabhakar.com       
+password: pavitra@library
